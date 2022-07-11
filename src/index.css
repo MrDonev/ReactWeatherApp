@@ -3,9 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-#five-days{
-  /* display:none; */
-}
+
 .forecast-section {
   position: absolute;
   top: 8vh;
@@ -49,27 +47,36 @@ body {
 }
 
 .app {
-  background-image: url('./Assets/default-bckgr.png');
+  background-image: url('./Assets/stockWeather.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   overflow-y: hidden;
   overflow-x: hidden;
-  transition: 0.5 ease;
+  transition: 1s ease;
   margin: auto;
   width: 90%;
 }
 .app.Rain {
-  background-image: url('./Assets/rain.jpg');
+  background-image: url('./Assets/rain.jpg') ;
 }
 .app.Clear {
-  background-image: url('./Assets/sun.jpg');
+  background-image: url('./Assets/sun.jpg') ;
 }
 .app.Clouds {
-  background-image: url('./Assets/cloudy.jpg');
+  background-image: url('./Assets/cloudy.jpg') ;
 }
 .app.Thunderstorm {
-  background-image: url('./Assets/thunder.jpg');
+  background-image: url('./Assets/thunder.jpg') ;
+}
+.app.Fog{
+  background-image: url('./Assets/fog.jpeg') ;
+}
+.app.Snow{
+  background-image: url('./Assets/snow.jpeg');
+}
+.app.Mist{
+  background-image: url('./Assets/mist.jpg');
 }
 main {
   min-height: 100vh;
@@ -97,16 +104,12 @@ main {
   background: none;
   border: none;
   outline: none;
-
   background-color: rgba(228, 210, 210, 0.5);
   border-radius: 0px 0px 16px 16px;
   margin-top: -23px;
-
   box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
-
   color: #313131;
   font-size: 20px;
-
   transition: 0.8s ease;
 }
 
@@ -135,7 +138,7 @@ main {
 
 .weather-box {
   margin: auto;
-  padding: 8vh;
+  /* padding: 8vh; */
   text-align: center;
 }
 
@@ -145,13 +148,10 @@ main {
   margin: 30px auto;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 16px;
-
   padding: 15px 25px;
-
   color: #fff;
   font-size: 102px;
   font-weight: 900;
-
   text-shadow: 3px 6px rgba(50, 50, 70, 0.5);
   text-align: center;
   box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
@@ -193,5 +193,48 @@ main {
   .five-day-forecast {
     display: block;
     margin: 0.4em auto;
+  }
+}
+
+@media only screen  and (max-width: 600px) {
+  body{
+    display:flex;
+    flex-direction: column;
+  }
+  .app{
+    margin:0;
+    width: 100%;
+    background-size: contain;
+  }
+  #DaysForecast{
+  flex-direction: column;
+  position: inherit;
+  }
+  .search-box{
+    width: 90vw;
+  }
+  .app{
+    background-image: url('./Assets/stockWeather.jpg');
+    background-size: auto 100%;
+  }
+  .app.Rain {
+    background-image: url('./Assets/rainPortrait.jpg') ;
+    background-size: auto 100%;
+  }
+  .app.Clear {
+    background-image: url('./Assets/clearPortraitjpeg') ;
+    background-size: auto 100%;
+  }
+  .app.Clouds {
+    background-image: url('./Assets/cloudyPortrait.jpeg') ;
+    background-size: auto 100%;
+  }
+  .app.Thunderstorm {
+    background-image: url('./Assets/thunderPortrait.jpg') ;
+    background-size: auto 100%;
+  }
+  .app.Fog{
+    background-image: url('./Assets/fogPortrait.jpeg') ;
+    background-size: auto 100%;
   }
 }

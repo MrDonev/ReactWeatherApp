@@ -11,6 +11,7 @@ function App() {
   const [weather, setWeather] = useState({});
   const [backgroundClass, setBackgroundClass] = useState('app');
   const [fiveDayList, setFiveDayList] = useState({});
+  
   const options = {
     method: 'GET',
     headers: {
@@ -96,7 +97,7 @@ function App() {
           />
         </div>
         {typeof weather.main != 'undefined' ? (
-          <div>
+          <div id='weather-data-containter'>
             <div className="location-box">
               <div className="location">
                 {weather.name}, {weather.sys.country}
@@ -120,7 +121,7 @@ function App() {
               let fiveDays = document.getElementById('DaysForecast');
               if (fiveDays) {
                 let toggleDisplay =
-                document.getElementById('DaysForecast').style.display === 'none'
+               ( document.getElementById('DaysForecast').style.display === 'none' || !document.getElementById('DaysForecast').style.display)
                   ? 'flex'
                   : 'none' || 'flex';
                   fiveDays.style.display = toggleDisplay;
