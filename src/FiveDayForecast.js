@@ -1,5 +1,3 @@
-
-
 const FiveDayForecast = (props) => {
   if (!Object.keys(props.daysList).length) return <></>;
   const fiveDayList = props.daysList;
@@ -129,31 +127,39 @@ const FiveDayForecast = (props) => {
     ),
   };
   const dayOfWeek = (d) => {
-    return d === 1
-      ? 'Monday'
-      : d === 2
-      ? 'Tuesday'
-      : d === 3
-      ? 'Wednesday'
-      : d === 4
-      ? 'Thursday'
-      : d === 5
-      ? 'Friday'
-      : d === 6
-      ? 'Saturday'
-      : 'Sunday';
+    if (!(d > 0 && d < 8)) {
+      d -= 7;
+    }
+    const day =
+      d === 1
+        ? 'Monday'
+        : d === 2
+        ? 'Tuesday'
+        : d === 3
+        ? 'Wednesday'
+        : d === 4
+        ? 'Thursday'
+        : d === 5
+        ? 'Friday'
+        : d === 6
+        ? 'Saturday'
+        : 'Sunday';
+    return day;
   };
   return (
     <>
-      <div >
+      <div>
         <div id="DaysForecast" className="forecast-section">
-          <div onClick={() => {
-           let toggleDisplay =
-           document.getElementById('secondRowDiv').style.display === 'none'
-             ? 'block'
-             : 'none';
-          document.getElementById('secondRowDiv').style.display = toggleDisplay;
-          }}>
+          <div
+            onClick={() => {
+              let toggleDisplay =
+                document.getElementById('secondRowDiv').style.display === 'none'
+                  ? 'block'
+                  : 'none';
+              document.getElementById('secondRowDiv').style.display =
+                toggleDisplay;
+            }}
+          >
             <p>{dayOfWeek(new Date().getDay())}</p>
             <p>Min temperature : {day1Forecast.temp_min}°C</p>
             <p>Max temperature : {day1Forecast.temp_max}°C</p>
@@ -185,8 +191,7 @@ const FiveDayForecast = (props) => {
           </div>
         </div>
         <div id="secondRowDiv">
-          <div>Hourly 
-            Temperature</div>
+          <div>Hourly Temperature</div>
         </div>
       </div>
     </>
